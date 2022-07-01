@@ -5,7 +5,7 @@ import { CenterFocusStrong } from "@mui/icons-material";
 import CoinCard from "./CoinCard";
 import { Grid } from "@mui/material";
 import Button from "@mui/material/Button";
-import {HiRefresh, HiViewList} from "react-icons/hi"
+import { HiRefresh, HiViewList } from "react-icons/hi";
 const requestOptions = {
   method: "GET",
   redirect: "follow",
@@ -65,30 +65,29 @@ function App() {
 
   const makeRandomCoinCard = () => {
     const indexCoin = Math.floor(Math.random() * coins.length);
-    const coin = coins[indexCoin]
+    const coin = coins[indexCoin];
     console.log(coins);
-    console.log("-----" + indexCoin)
+    console.log("-----" + indexCoin);
     // use that num as index to get the coin out of the array
-    
+
     return (
       <>
         <Grid
-            container
-            spacing={5}
-            justifyContent="center"
-            alignItems="flex-start"
-            width="100%"
-          >
-        <Grid item >
-                    <CoinCard
-                      name={coin.id}
-                      image={coin.icon}
-                      price={coin.price}
-                      coin={coin}
-
-                    />
+          container
+          spacing={5}
+          justifyContent="center"
+          alignItems="flex-start"
+          width="100%"
+        >
+          <Grid item>
+            <CoinCard
+              name={coin.id}
+              image={coin.icon}
+              price={coin.price}
+              coin={coin}
+            />
           </Grid>
-          </Grid>
+        </Grid>
       </>
     );
   };
@@ -106,33 +105,59 @@ function App() {
 
   return (
     <div className="App">
-      <div id="header">
-        <div className="title">
-          <img style = {{width:"100px", height: "100px", marginTop: "0%"}} src={require("/Users/amanuelreda/Desktop/sea/crypto-world/src/logoC.png")}/>
-        </div>
-        <Button
-          className="viewAll"
-          variant="contained"
-          sx={{ px: 3, mx: "auto" }}
-          style={{ color: "white", background: "black" , marginRight: "5%", border:"2px solid white", borderRadius: "20px"}}
-          onClick={() => {
-            setActivated(!activated);
-          }}
-        >
-          <HiViewList/>View All
-        </Button>
-      </div>
-      <div className="input">
-        <ReactSearchAutocomplete
-          items={coins}
-          onSearch={handleOnSearch}
-          onHover={handleOnHover}
-          onSelect={searchResult}
-          onFocus={handleOnFocus}
-          autoFocus
-          formatResult={formatResult}
-        />
-      </div>
+      <Grid
+        container
+        spacing={3}
+        alignItems="center"
+        display="flex"
+        justifyContent="center"
+        width="100%"
+        alignContent={"center"}
+        marginLeft = "auto"
+        marginRight="auto"
+      >
+        <Grid item>
+          <div className="title">
+            <img
+              style={{ width: "100px", height: "100px", marginTop: "0%" }}
+              src={require("/Users/amanuelreda/Desktop/sea/crypto-world/src/logoC.png")}
+            />
+          </div>
+        </Grid>
+        <Grid item >
+          <div className="input">
+            <ReactSearchAutocomplete
+              items={coins}
+              onSearch={handleOnSearch}
+              onHover={handleOnHover}
+              onSelect={searchResult}
+              onFocus={handleOnFocus}
+              autoFocus
+              formatResult={formatResult}
+            />
+          </div>
+        </Grid>
+        <Grid item>
+          <Button
+            className="viewAll"
+            variant="contained"
+            sx={{ px: 3, mx: "auto" }}
+            style={{
+              color: "white",
+              background: "black",
+              marginRight: "5%",
+              border: "2px solid white",
+              borderRadius: "20px",
+            }}
+            onClick={() => {
+              setActivated(!activated);
+            }}
+          >
+            <HiViewList />
+            View All
+          </Button>
+        </Grid>
+      </Grid>
       <div className="bodyPart">
         {activated && (
           <table>
@@ -206,10 +231,7 @@ function App() {
             })}
           </Grid>
         )}
-        {!activated && !search
-          && coins.length > 0 &&
-          makeRandomCoinCard()
-        }
+        {!activated && !search && coins.length > 0 && makeRandomCoinCard()}
       </div>
     </div>
   );
