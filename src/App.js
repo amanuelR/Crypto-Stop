@@ -66,8 +66,7 @@ function App() {
   const makeRandomCoinCard = () => {
     const indexCoin = Math.floor(Math.random() * coins.length);
     const coin = coins[indexCoin];
-    console.log(coins);
-    console.log("-----" + indexCoin);
+
     // use that num as index to get the coin out of the array
 
     return (
@@ -107,11 +106,10 @@ function App() {
     <div className="App">
       <Grid
         container
-        spacing={3}
+        spacing={2}
         alignItems="center"
         display="flex"
         justifyContent="center"
-        width="100%"
         alignContent={"center"}
         marginLeft = "auto"
         marginRight="auto"
@@ -124,7 +122,7 @@ function App() {
             />
           </div>
         </Grid>
-        <Grid item >
+        <Grid item>
           <div className="input">
             <ReactSearchAutocomplete
               items={coins}
