@@ -118,7 +118,7 @@ function App() {
           <div className="title">
             <img
               style={{ width: "100px", height: "100px", marginTop: "0%" }}
-              src={require("/Users/amanuelreda/Desktop/sea/crypto-world/src/logoC.png")}
+              src={require("./logoC.png")}
             />
           </div>
         </Grid>
