@@ -2,7 +2,7 @@
   "name": "crypto-world",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://amanuelR.github.io/Crypto-Stop",
+  "homepage": "https://amanuelR.github.io/Crypto-Stop/src/index.js",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
